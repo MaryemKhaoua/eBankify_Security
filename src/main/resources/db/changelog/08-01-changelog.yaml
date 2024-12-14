@@ -1,6 +1,15 @@
 databaseChangeLog:
   - changeSet:
-      id: 1733232573623-1
+      id: 1733671398084-1
+      author: Youcode
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: roles_seq
+            startValue: 1
+  - changeSet:
+      id: 1733671398084-2
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -33,7 +42,7 @@ databaseChangeLog:
                   type: BIGINT
             tableName: accounts
   - changeSet:
-      id: 1733232573623-2
+      id: 1733671398084-3
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -55,7 +64,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
             tableName: banks
   - changeSet:
-      id: 1733232573623-3
+      id: 1733671398084-4
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -82,7 +91,7 @@ databaseChangeLog:
                   type: BIGINT
             tableName: invoices
   - changeSet:
-      id: 1733232573623-4
+      id: 1733671398084-5
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -121,7 +130,25 @@ databaseChangeLog:
                   type: BIGINT
             tableName: loans
   - changeSet:
-      id: 1733232573623-5
+      id: 1733671398084-6
+      author: Youcode
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_roles
+                  name: id
+                  type: INT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: roles
+  - changeSet:
+      id: 1733671398084-7
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -157,7 +184,29 @@ databaseChangeLog:
                   type: DATE
             tableName: transactions
   - changeSet:
-      id: 1733232573623-6
+      id: 1733671398084-8
+      author: Youcode
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_roles
+                  name: role_id
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_roles
+                  name: user_id
+                  type: BIGINT
+            tableName: user_roles
+  - changeSet:
+      id: 1733671398084-9
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -196,16 +245,13 @@ databaseChangeLog:
                   name: credit_score
                   type: INT
               - column:
-                  name: role
-                  type: VARCHAR(255)
-              - column:
                   constraints:
                     nullable: false
                   name: active
                   type: BOOLEAN
             tableName: users
   - changeSet:
-      id: 1733232573623-7
+      id: 1733671398084-10
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -214,7 +260,7 @@ databaseChangeLog:
             constraintName: uc_accounts_accountnumber
             tableName: accounts
   - changeSet:
-      id: 1733232573623-8
+      id: 1733671398084-11
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -225,7 +271,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: banks
   - changeSet:
-      id: 1733232573623-9
+      id: 1733671398084-12
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -236,7 +282,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: users
   - changeSet:
-      id: 1733232573623-10
+      id: 1733671398084-13
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -247,7 +293,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: users
   - changeSet:
-      id: 1733232573623-11
+      id: 1733671398084-14
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -258,7 +304,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: users
   - changeSet:
-      id: 1733232573623-12
+      id: 1733671398084-15
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -269,7 +315,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: accounts
   - changeSet:
-      id: 1733232573623-13
+      id: 1733671398084-16
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -279,4 +325,26 @@ databaseChangeLog:
             constraintName: FK_TRANSACTIONS_ON_SOURCE_ACCOUNT
             referencedColumnNames: id
             referencedTableName: accounts
+  - changeSet:
+      id: 1733671398084-17
+      author: Youcode
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: role_id
+            baseTableName: user_roles
+            constraintName: fk_userol_on_role
+            referencedColumnNames: id
+            referencedTableName: roles
+  - changeSet:
+      id: 1733671398084-18
+      author: Youcode
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: user_roles
+            constraintName: fk_userol_on_user
+            referencedColumnNames: id
+            referencedTableName: users
 
