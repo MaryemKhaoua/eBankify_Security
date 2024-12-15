@@ -7,6 +7,7 @@ import com.example.ebankify_security.service.AccountService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +16,12 @@ import java.util.List;
 @RequestMapping("/api/accounts")
 @CrossOrigin(origins = "http://localhost:8080")
 @AllArgsConstructor
+@PreAuthorize("isAuthenticated()")
 public class AccountController {
     private AccountService accountService;
+
+    @PreAuthorize("@accountSecurity.canCreateAccount(#accountRequest.userId)")
+
     @PostMapping("/save")
     public ResponseEntity<AccountVM> save(@Valid @RequestBody AccountRequest accountRequest) {
         AccountDto accountDto = accountService.createAccount(accountRequest);

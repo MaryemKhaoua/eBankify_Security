@@ -45,6 +45,8 @@ public class UserService {
                     .email(registerRequest.getEmail())
                     .active(registerRequest.isActive())
                     .password(passwordEncoder.encode(registerRequest.getPassword()))
+                    .monthlyIncome(registerRequest.getMonthlyIncome())
+                    .creditScore((registerRequest.getCreditScore()))
                     .roles(new HashSet<>())
                     .build();
 

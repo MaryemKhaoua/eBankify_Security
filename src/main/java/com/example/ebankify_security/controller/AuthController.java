@@ -33,6 +33,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<UserAuthVm> login(@Valid @RequestBody LoginRequest loginRequest) {
+        System.out.println("ana hna");
         UserAuthDto userDto = userService.login(loginRequest);
         UserAuthVm response = UserAuthVm.builder()
                 .user(userDto)
