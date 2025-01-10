@@ -12,7 +12,10 @@ import lombok.AllArgsConstructor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -32,14 +35,20 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserAuthVm> login(@Valid @RequestBody LoginRequest loginRequest) {
-        System.out.println("ana hna");
-        UserAuthDto userDto = userService.login(loginRequest);
-        UserAuthVm response = UserAuthVm.builder()
-                .user(userDto)
-                .message("Login successful ")
-                .statusCode(HttpStatus.OK.value())
-                .build();
-        return ResponseEntity.ok(response);
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest loginRequest) {
+        try {
+            UserAuthDto userDto = userService.login(loginRequest);
+            UserAuthVm response = UserAuthVm.builder()
+                    .user(userDto)
+                    .message("Login successful ")
+                    .statusCode(HttpStatus.OK.value())
+                    .build();
+            return ResponseEntity.ok(response);
+        } catch (BadCredentialsException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Invalid credentials"));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message", "An error occurred"));
+        }
     }
+
 }

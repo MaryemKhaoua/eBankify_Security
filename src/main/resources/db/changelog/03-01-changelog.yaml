@@ -1,15 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1734279836967-1
-      author: Youcode
-      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
-      changes:
-        - createSequence:
-            incrementBy: 50
-            sequenceName: roles_seq
-            startValue: 1
-  - changeSet:
-      id: 1734279836967-2
+      id: 1735900043391-1
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -42,7 +33,7 @@ databaseChangeLog:
                   type: BIGINT
             tableName: accounts
   - changeSet:
-      id: 1734279836967-3
+      id: 1735900043391-2
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -64,7 +55,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
             tableName: banks
   - changeSet:
-      id: 1734279836967-4
+      id: 1735900043391-3
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -91,7 +82,7 @@ databaseChangeLog:
                   type: BIGINT
             tableName: invoices
   - changeSet:
-      id: 1734279836967-5
+      id: 1735900043391-4
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -130,7 +121,7 @@ databaseChangeLog:
                   type: BIGINT
             tableName: loans
   - changeSet:
-      id: 1734279836967-6
+      id: 1735900043391-5
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -148,7 +139,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
             tableName: roles
   - changeSet:
-      id: 1734279836967-7
+      id: 1735900043391-6
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -184,7 +175,7 @@ databaseChangeLog:
                   type: DATE
             tableName: transactions
   - changeSet:
-      id: 1734279836967-8
+      id: 1735900043391-7
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -206,7 +197,7 @@ databaseChangeLog:
                   type: BIGINT
             tableName: user_roles
   - changeSet:
-      id: 1734279836967-9
+      id: 1735900043391-8
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -251,7 +242,7 @@ databaseChangeLog:
                   type: BOOLEAN
             tableName: users
   - changeSet:
-      id: 1734279836967-10
+      id: 1735900043391-9
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -260,7 +251,7 @@ databaseChangeLog:
             constraintName: uc_accounts_accountnumber
             tableName: accounts
   - changeSet:
-      id: 1734279836967-11
+      id: 1735900043391-10
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -271,7 +262,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: banks
   - changeSet:
-      id: 1734279836967-12
+      id: 1735900043391-11
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -282,7 +273,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: users
   - changeSet:
-      id: 1734279836967-13
+      id: 1735900043391-12
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -293,7 +284,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: users
   - changeSet:
-      id: 1734279836967-14
+      id: 1735900043391-13
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -304,7 +295,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: users
   - changeSet:
-      id: 1734279836967-15
+      id: 1735900043391-14
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -315,7 +306,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: accounts
   - changeSet:
-      id: 1734279836967-16
+      id: 1735900043391-15
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -326,7 +317,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: accounts
   - changeSet:
-      id: 1734279836967-17
+      id: 1735900043391-16
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -337,7 +328,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: roles
   - changeSet:
-      id: 1734279836967-18
+      id: 1735900043391-17
       author: Youcode
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:

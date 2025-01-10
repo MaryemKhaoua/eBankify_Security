@@ -66,6 +66,7 @@ public class UserService {
         }
     }
     public UserAuthDto login(LoginRequest loginRequest)  {
+        System.out.println("rani hnaa");
         Optional<User> userOptional = userRepository.findByEmail(loginRequest.getEmail());
 
         if (userOptional.isEmpty()) {
